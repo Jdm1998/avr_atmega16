@@ -1,0 +1,19 @@
+#include<avr/io.h>//library for including all register   
+
+#define F_CPU 16000000UL  //clock speed
+#include<util/delay.h>//for delay
+void main()
+{DDRB=0b00001111;  //b->binary. all 0 and 1 represent the declartion of pin as input or output.0->input and 1->output
+
+while(1)
+{PORTB=0xF0;//x->hexadecimal represention of no. F->1111 means all four 4-7pins are on (+5V)and rest are off
+_delay_ms(1000);//ms->milisecond
+PORTB=0x33;//it may written as 0b01110111
+
+_delay_ms(1000);
+PORTB=0xCC;
+_delay_ms(1000);
+PORTB=0xFF;
+_delay_ms(1000);
+}
+}
